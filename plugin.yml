@@ -1,0 +1,20 @@
+name: SingularityGuard
+version: 1.0.0
+main: dev.singularityguard.SingularityGuard
+api-version: "1.20"
+description: Kapsamlı anticheat sistemi (hareket, savaş, dünya, paket ve chat kontrolleri)
+commands:
+  singularityguard:
+    description: SingularityGuard ana komutu
+    aliases: [sg, ac]
+    usage: /singularityguard help
+permissions:
+  singularityguard.admin:
+    description: Yönetim komutları
+    default: op
+  singularityguard.alerts:
+    description: Hile uyarılarını görür
+    default: op
+  singularityguard.bypass:
+    description: Tüm kontrollerden muaf
+    default: false

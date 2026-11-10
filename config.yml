@@ -1,0 +1,71 @@
+# ================= SingularityGuard AntiCheat =================
+prefix: "&8[&cSingularityGuard&8] "
+
+alerts:
+  console: true
+  format: "%prefix%&f%player% &7failed &c%check% &8(&7%info%&8) &7VL: &c%vl% &8| &7%ping%ms"
+
+# Check bazında max-vl yoksa bu kullanılır
+default-max-vl: 15
+
+vl-decay:
+  interval-seconds: 30
+  amount: 1.0
+
+# Hareket ihlallerinde oyuncuyu son güvenli konuma geri çek
+setback: true
+# Reach / KillAura gibi ihlalli vuruşları iptal et
+cancel-hits: true
+
+lag-compensation:
+  min-tps: 17.0
+  max-ping: 500
+
+punishments:
+  default-commands:
+    - "kick %player% Unfair advantage detected (%check%)"
+
+logging: true
+
+discord:
+  enabled: false
+  webhook-url: ""
+
+# Her check için: enabled, max-vl, (opsiyonel) commands ve check'e özel ayarlar
+checks:
+  Fly:        { enabled: true, max-vl: 12, tolerance: 0.06 }
+  Speed:      { enabled: true, max-vl: 15, leniency: 0.03 }
+  NoSlow:     { enabled: true, max-vl: 12 }
+  NoFall:     { enabled: true, max-vl: 10 }
+  Jesus:      { enabled: true, max-vl: 10 }
+  Step:       { enabled: true, max-vl: 10, max-height: 0.65 }
+  Timer:      { enabled: true, max-vl: 10, max-balance-ms: 250 }
+  Phase:      { enabled: true, max-vl: 8 }
+  OmniSprint: { enabled: true, max-vl: 10 }
+  InvMove:    { enabled: true, max-vl: 10 }
+  BadPackets: { enabled: true, max-vl: 6 }
+  Reach:      { enabled: true, max-vl: 10, max-distance: 3.6 }
+  KillAura:   { enabled: true, max-vl: 12, max-angle: 65 }
+  AutoClicker: { enabled: true, max-vl: 12, max-cps: 20, min-std: 12 }
+  Criticals:  { enabled: true, max-vl: 8 }
+  Velocity:   { enabled: true, max-vl: 12, min-ratio: 0.35 }
+  FastBreak:  { enabled: true, max-vl: 10, min-ratio: 0.7 }
+  Nuker:      { enabled: true, max-vl: 10, max-per-second: 12, require-dig-start: false }
+  BlockReach: { enabled: true, max-vl: 8, max-distance: 6.5 }
+  Scaffold:   { enabled: true, max-vl: 12, max-angle: 80, max-tower-per-second: 5 }
+  FastPlace:  { enabled: true, max-vl: 10, max-per-second: 16 }
+  Xray:       { enabled: true, max-vl: 12, window: 100, min-sample: 40, max-ratio: 0.08 }
+  ChatSpam:   { enabled: true, max-vl: 20, max-messages: 4, window-seconds: 5, min-delay-ms: 350 }
+  CommandSpam: { enabled: true, max-vl: 20, max-commands: 6, window-seconds: 3 }
+  Sprint:     { enabled: true, max-vl: 8 }
+  InvSpeed:   { enabled: true, max-vl: 10, max-clicks-per-second: 30 }
+  BoatFly:     { enabled: true, max-vl: 8 }
+  ElytraSpeed: { enabled: true, max-vl: 8, max-speed: 4.5 }
+  FastLadder:  { enabled: true, max-vl: 10 }
+  FastEat:     { enabled: true, max-vl: 10 }
+  FastBow:     { enabled: true, max-vl: 10 }
+  FastHeal:    { enabled: true, max-vl: 10 }
+  EntityReach: { enabled: true, max-vl: 10, max-distance: 4.8 }
+  Interact:    { enabled: true, max-vl: 12 }
+  DropSpam:    { enabled: true, max-vl: 15, max-per-second: 15 }
+  JoinFlood:   { enabled: true, max-per-10s: 5 }
